@@ -33,7 +33,7 @@ deploy:
       --name $CONTAINER_NAME
       --restart always
       --publish 8990:80
-      --volume /docker_persistent/eSales/translator/dist:/usr/share/nginx/html
+      --volume /docker_persistent/eSales/translator/dist:/usr/share/nginx/html:ro
       --detach
       nginx      
   only:
