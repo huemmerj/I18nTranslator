@@ -34,7 +34,7 @@ deploy:
       docker run
       --name $CONTAINER_NAME
       --restart always
-      --publish 8080:8990
+      --publish 8990:8080
       -v /docker_persistent/eSales/translations/dist:/usr/share/nginx/html
       --detach
       nginx      
