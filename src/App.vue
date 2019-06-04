@@ -46,7 +46,7 @@ export default {
   },
   methods: {
 
-    // eine Datei zum übersetzen einlesen 
+    // eine Datei zum übersetzen einlesen
     loadFile (file) {
       this.fileLoaded = false;
       const reader = new FileReader();
@@ -80,7 +80,7 @@ export default {
       reader.onload = (function () {
         return function (e) {
           try {
-            generateTranslations(this.parsedFile, JSON.parse(e.target.result))
+            generateTranslations(this.parsedFile, JSON.parse(e.target.result));
             this.fileLoaded = true;
           } catch (ex) {
             this.error = ex;

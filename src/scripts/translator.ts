@@ -1,18 +1,21 @@
+interface ISomeObject {
+    [key: string]: ISomeObject | string | undefined;
+}
 class Translation {
     public name?: string;
     public values?: Translation[];
     public value?: string;
     public translated?: string;
     // build the Translation Object
-    constructor (file: object, name?: string) {
+    constructor (file: ISomeObject | undefined | string, name?: string) {
         // Wenn es ein Object ist hat es noch files unter sich (kinder)
         if (typeof file === 'object') {
             this.values = [];
             // kinder erstellen
-            for (const index of Object.keys(file)) {
-                const entry = file[index];
+            for (const key of Object.keys(file)) {
+                const entry: ISomeObject | undefined | string = file[key];
                 // daten und den Namen mitgeben
-                this.values.push(new Translation(entry, index));
+                this.values.push(new Translation(entry, key));
             }
         // wenn es keine kinder hat wird der Wert der Wert auf den Value gesetzt
         } else {
@@ -25,20 +28,23 @@ class Translation {
         }
     }
     // gibt das Fertige File zurück
-    public getTranslatedFile (): object | string {
-        const object = {};
+    public getTranslatedFile (): ISomeObject | string | undefined {
+        const object: ISomeObject = {};
         // wenn noch Kinder vorhanden sind loop wird über die einträge geloopt
         if (this.values) {
-            for (const entry  of this.values) {
+            let entry: Translation;
+            for ( entry of this.values) {
                 // methode auf jedem kind aufrufen und das ergebnis im Objekt speichern
-                object[entry.name] = entry.getTranslatedFile();
+                if (entry.name) {
+                        object[entry.name] = entry.getTranslatedFile();
+                }
             }
         // wenn keine Kinder vorhanden sind wird der Übersetze text an den Parent zurückgegeben
         } else {
             if (this.translated) {
                 return this.translated;
             } else {
-                return '';
+                return void 0;
             }
         }
         // am ende wird das Fertige Objekt zurückgegeben
@@ -46,7 +52,7 @@ class Translation {
     }
     // Methode um eine Angefangene Übersetzungsdatei zu laden
     public generateTranslations (file: Translation) {
-        // prüfen ob kinder vorhanden sind 
+        // prüfen ob kinder vorhanden sind
         if (this.values && file.values) {
             // drüber loopen und jewils abgleichen ob etwas übereinstimmt
             for (const entry of this.values) {
@@ -68,7 +74,7 @@ class Translation {
     }
 }
 
-export function getParsedArray (file: object) {
+export function getParsedArray (file: ISomeObject ) {
     const translation = new Translation(file);
     return translation;
 }
@@ -78,7 +84,7 @@ export function getTranslatedFile (file: Translation) {
     return translatedFile;
 }
 
-export function generateTranslations (file: Translation, translatedFile: object) {
+export function generateTranslations (file: Translation, translatedFile: ISomeObject) {
 
     file.generateTranslations(new Translation(translatedFile));
 }
