@@ -20,7 +20,7 @@ build:
     paths:
       - dist
   tags:
-    - translator
+    - docker
 
 deploy:
   stage: deploy
