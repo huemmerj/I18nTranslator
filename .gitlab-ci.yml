@@ -27,12 +27,13 @@ deploy:
   script:
     - docker stop $CONTAINER_NAME || true
     - docker rm -f $CONTAINER_NAME || true
+    - cp -R dist /docker_persistent/eSales/translator/dist
     - >
       docker run
       --name $CONTAINER_NAME
       --restart always
       --publish 8990:80
-      --volume dist:/usr/share/nginx/html
+      --volume /docker_persistent/eSales/translator/dist:/usr/share/nginx/html
       --detach
       nginx      
   only:
