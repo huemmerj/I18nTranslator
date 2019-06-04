@@ -44,17 +44,24 @@ class Translation {
         // am ende wird das Fertige Objekt zurückgegeben
         return object;
     }
+    // Methode um eine Angefangene Übersetzungsdatei zu laden
     public generateTranslations (file: Translation) {
+        // prüfen ob kinder vorhanden sind 
         if (this.values && file.values) {
+            // drüber loopen und jewils abgleichen ob etwas übereinstimmt
             for (const entry of this.values) {
                 for (const entryT of file.values) {
                     if (entryT.name === entry.name) {
+                        // falls ja, dort wieder diese methode aufrufen und jewils das kind,
+                        // der übersetzten datei mitgeben
                         entry.generateTranslations(entryT);
                     }
                 }
             }
         } else {
+            // wenn es keine Kinder mehr unten drunter hat, abgleichen ob die namen gleich sind
             if ( this.name === file.name ) {
+                // values vorfüllen
                 this.translated = file.value;
             }
         }

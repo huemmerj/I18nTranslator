@@ -45,6 +45,8 @@ export default {
     };
   },
   methods: {
+
+    // eine Datei zum übersetzen einlesen 
     loadFile (file) {
       this.fileLoaded = false;
       const reader = new FileReader();
@@ -62,11 +64,15 @@ export default {
       }.bind(this))();
       reader.readAsText(file);
     },
+
+    // die Fertige datei Downloaden
     translate () {
       this.translatedFile = getTranslatedFile(this.parsedFile);
       const blob = new Blob([JSON.stringify(this.translatedFile, null, 4)], {type: 'application/json; charset=utf8'});
       FileSaver.saveAs(blob, this.fileName);
     },
+
+    // Eine schon übersetzte datei laden und values vorfüllen lassen
     loadTranslatedFile (file) {
       this.fileLoaded = false;
       const reader = new FileReader();
