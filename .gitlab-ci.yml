@@ -4,6 +4,9 @@ stages:
 
 variables:
   CONTAINER_NAME: translator
+  HTTP_PROXY: http://172.30.109.30:8080
+  HTTPS_PROXY: http://172.30.109.30:8080
+  NO_PROXY: 127.0.0.1, localhost, gitlab.fis-asp.de
 
 build:
   stage: build
@@ -22,8 +25,8 @@ build:
 deploy:
   stage: deploy
   script:
-    - docker stop $CONTAINER_NAME || echo 'Nothing todo'
-    - docker rm -f $CONTAINER_NAME || echo 'Nothing todo'
+    - docker stop $CONTAINER_NAME || true
+    - docker rm -f $CONTAINER_NAME || true
     - cp -R dist /docker_persistent/eSales/translations/dist
     - >
       docker run
