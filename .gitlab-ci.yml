@@ -3,7 +3,7 @@ stages:
   - deploy
 
 variables:
-  CONTAINER_NAME: translation
+  CONTAINER_NAME: translator
   HTTP_PROXY: http://172.30.109.30:8080
   HTTPS_PROXY: http://172.30.109.30:8080
   NO_PROXY: 127.0.0.1, localhost, gitlab.fis-asp.de, docker
