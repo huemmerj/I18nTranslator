@@ -22,6 +22,7 @@
   "devDependencies": {
     "@vue/cli-plugin-typescript": "^3.8.0",
     "@vue/cli-service": "^3.8.0",
+    "@fortawesome/fontawesome-free": "^5.7.1",
     "exports-loader": "^0.7.0",
     "typescript": "^3.4.3",
     "vue-cli-plugin-bootstrap": "^1.0.0-alpha.1",

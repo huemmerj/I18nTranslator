@@ -1,10 +1,14 @@
 <template>
     <div >
         <div class="row">
+            <div class="col-1">
+                <button class="btn btn-primary m-0 p-0"><i class="fas fa-plus-square m-1"></i></button>
+            </div>
             <!-- Name -->
             <div class="col-3 d-flex justify-content-start">
                 {{ file.name }}
             </div>
+
             <!-- Value( falls vorhanden ) -->
             <div 
                 class="col-4 d-flex justify-content-start"

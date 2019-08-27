@@ -1,0 +1,56 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js
+
+PATH: 
+  C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;O:\bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Program Files\Cloud Foundry;C:\Program Files (x86)\Yarn\bin;C:\ProgramData\chocolatey\bin;C:\Program Files\nodejs;C:\Program Files\AdoptOpenJDK\jdk8u192-b12\bin;C:\Program Files\Java\jdk1.8.0_221\bin;C:\Android\android-sdk\tools;C:\Android\android-sdk\platform-tools;C:\Android\android-sdk\tools\bin;C:\Users\j.huemmer\AppData\Local\Programs\Python\Python37\Scripts;C:\Users\j.huemmer\AppData\Local\Programs\Python\Python37;C:\Program Files\MongoDB\Server\3.6\bin;C:\Program Files\Java\jdk1.8.0_171\bin;C:\Users\j.huemmer\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\nodejs;C:\Users\j.huemmer\AppData\Local\Yarn\bin;C:\Users\j.huemmer\AppData\Roaming\npm
+
+Yarn version: 
+  1.17.3
+
+Node version: 
+  10.16.3
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: EPERM: operation not permitted, unlink 'C:\Projekte\translator\node_modules\node-sass\vendor\win32-x64-64\binding.node'
+
+npm manifest: 
+  {
+    "name": "translator2",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+      "serve": "vue-cli-service serve",
+      "build": "vue-cli-service build",
+      "lint": "vue-cli-service lint"
+    },
+    "dependencies": {
+      "bootstrap": "^4.3.1",
+      "browserify-fs": "^1.0.0",
+      "file-saver": "^2.0.2",
+      "fs": "0.0.1-security",
+      "jquery": "^3.4.1",
+      "node-sass": "^4.12.0",
+      "popper.js": "^1.15.0",
+      "sass-loader": "^7.1.0",
+      "vue": "^2.6.10",
+      "vuex": "^3.0.1"
+    },
+    "devDependencies": {
+      "@vue/cli-plugin-typescript": "^3.8.0",
+      "@vue/cli-service": "^3.8.0",
+      "@fortawesome/fontawesome-free": "^5.7.1",
+      "exports-loader": "^0.7.0",
+      "typescript": "^3.4.3",
+      "vue-cli-plugin-bootstrap": "^1.0.0-alpha.1",
+      "vue-template-compiler": "^2.6.10"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
