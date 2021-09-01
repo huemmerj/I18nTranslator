@@ -1,0 +1,31 @@
+{
+  "name": "translator2",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "browserify-fs": "^1.0.0",
+    "file-saver": "^2.0.2",
+    "fs": "0.0.1-security",
+    "jquery": "^3.4.1",
+    "node-sass": "^4.12.0",
+    "popper.js": "^1.15.0",
+    "sass-loader": "^7.1.0",
+    "vue": "^2.6.10",
+    "vuex": "^3.0.1"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-typescript": "^3.8.0",
+    "@vue/cli-service": "^3.8.0",
+    "@fortawesome/fontawesome-free": "^5.7.1",
+    "exports-loader": "^0.7.0",
+    "typescript": "^3.4.3",
+    "vue-cli-plugin-bootstrap": "^1.0.0-alpha.1",
+    "vue-template-compiler": "^2.6.10"
+  }
+}

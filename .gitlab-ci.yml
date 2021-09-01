@@ -1,0 +1,42 @@
+stages: 
+  - build
+  - deploy
+
+variables:
+  CONTAINER_NAME: translator
+  HTTP_PROXY: http://172.30.109.30:8080
+  HTTPS_PROXY: http://172.30.109.30:8080
+  NO_PROXY: 127.0.0.1, localhost, gitlab.fis-asp.de
+
+build:
+  stage: build
+  image: node:12.0.0-alpine
+  script:
+    - apk add --no-cache git automake autoconf alpine-sdk
+    - npm config set https-proxy $HTTPS_PROXY
+    - npm install
+    - npm run build
+  artifacts:
+    paths:
+      - dist
+  tags:
+    - esalesdocker
+
+deploy:
+  stage: deploy
+  script:
+    - docker stop $CONTAINER_NAME || true
+    - docker rm -f $CONTAINER_NAME || true
+    - cp -R dist /docker_persistent/eSales/translator/dist
+    - >
+      docker run
+      --name $CONTAINER_NAME
+      --restart always
+      --publish 8990:80
+      --volume /docker_persistent/eSales/translator/dist:/usr/share/nginx/html:ro
+      --detach
+      nginx      
+  only:
+    - master
+  tags:
+    - shell
